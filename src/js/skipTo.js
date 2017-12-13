@@ -37,7 +37,7 @@
 			sections:  'nav',
 			headings:  'h1, h2, h3',
 			ids:       '#SkipToA1, #SkipToA2',
-			accessKey: '0',
+			accessKey: '',//'0',
 			wrap: "false",
 			visibility: "onFocus",
 			customClass: "",
@@ -80,8 +80,10 @@
 
 			this.addStyles("@@cssContent");
 
-			this.dropdownHTML = '<a accesskey="'+ this.config.accessKey +'" tabindex="0" data-wrap="'+ this.config.wrap +'"class="dropMenu-toggle skipTo '+ this.config.visibility + ' '+ this.config.customClass +'" id="drop4" role="button" aria-haspopup="true" ';
-			this.dropdownHTML += 'aria-expanded="false" data-toggle="dropMenu" href="#" data-target="menu1">' + this.config.buttonLabel + '<span class="caret"></span></a>';
+			this.dropdownHTML = '<button   data-wrap="'+ this.config.wrap +'"class="dropMenu-toggle skipTo '+ this.config.visibility + ' '+ this.config.customClass +'" id="drop4"  aria-haspopup="true" ';
+			if(this.config.accessKey!==''){ this.dropdownHTML+='accesskey="'+ this.config.accessKey +'" ';}
+		
+			this.dropdownHTML += 'aria-expanded="false" data-toggle="dropMenu"  data-target="menu1">' + this.config.buttonLabel + '<span class="caret"></span></button>';
 			this.dropdownHTML += '<ul id="menu1" class="dropMenu-menu" role="menu" aria-label="' + this.config.menuLabel + '" style="top:3%; text-align:left">';
 
 			this.getLandMarks(this.config.main);
